@@ -30,7 +30,7 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir _site
-          cp -R assets downloads index.html README.md styles.css theme-toggle.js _site/
+          cp -R assets downloads index.html changelog.html README.md styles.css theme-toggle.js _site/
           touch _site/.nojekyll
 
       - name: Upload Pages artifact
