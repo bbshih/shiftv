@@ -31,3 +31,55 @@ themeButtons.forEach((button) => {
     }
   });
 });
+
+const bucketDemo = document.querySelector("[data-bucket-demo]");
+const bucketReplay = document.querySelector("[data-bucket-replay]");
+const bucketStatus = document.querySelector("[data-bucket-status]");
+
+if (bucketDemo) {
+  const bucketSteps = [
+    "Drag toward a stash, then drop to save.",
+    "Clip card follows your cursor toward the bucket.",
+    "Bucket opens when the card is close enough.",
+    "ShiftV tucks the clip into the active stash."
+  ];
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let bucketTimer;
+  let bucketStep = 0;
+
+  const setBucketStep = (step) => {
+    bucketStep = step;
+    bucketDemo.dataset.step = String(step);
+
+    if (bucketStatus) {
+      bucketStatus.textContent = bucketSteps[step];
+    }
+  };
+
+  const scheduleBucketStep = () => {
+    bucketTimer = window.setTimeout(() => {
+      const nextStep = (bucketStep + 1) % bucketSteps.length;
+      setBucketStep(nextStep);
+      scheduleBucketStep();
+    }, bucketStep === 0 ? 1100 : 1500);
+  };
+
+  const playBucketDemo = () => {
+    window.clearTimeout(bucketTimer);
+
+    if (reducedMotionQuery.matches) {
+      setBucketStep(3);
+      return;
+    }
+
+    setBucketStep(0);
+    scheduleBucketStep();
+  };
+
+  if (bucketReplay) {
+    bucketReplay.addEventListener("click", playBucketDemo);
+  }
+
+  reducedMotionQuery.addEventListener("change", playBucketDemo);
+  playBucketDemo();
+}
