@@ -134,6 +134,11 @@ svg {
   background: rgba(120, 120, 244, 0.17);
 }
 
+.nav-links a[aria-current="page"] {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.72);
+}
+
 main {
   overflow: hidden;
 }
@@ -251,6 +256,14 @@ h1 {
   color: var(--faint);
   font-size: 14px;
   font-weight: 610;
+}
+
+.inline-link {
+  color: var(--accent-dark);
+  font-weight: 760;
+  text-decoration: underline;
+  text-decoration-color: rgba(61, 64, 184, 0.28);
+  text-underline-offset: 3px;
 }
 
 .hero-media {
@@ -856,6 +869,130 @@ figcaption {
   transition: color 180ms ease;
 }
 
+.release-page {
+  width: var(--content);
+  margin: 0 auto;
+  padding: clamp(36px, 7vh, 78px) 0 0;
+}
+
+.changelog-hero {
+  max-width: 760px;
+  padding-bottom: 52px;
+}
+
+.changelog-hero h1 {
+  max-width: none;
+  margin-bottom: 18px;
+  font-size: clamp(54px, 8vw, 92px);
+}
+
+.changelog-hero p:not(.section-kicker),
+.changelog-card p {
+  color: var(--muted);
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.55;
+}
+
+.release-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.changelog-card {
+  padding: clamp(26px, 5vw, 46px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(120, 120, 244, 0.1), transparent 40%),
+    rgba(255, 255, 255, 0.84);
+  box-shadow: var(--shadow-soft);
+}
+
+.release-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(300px, 0.5fr);
+  gap: clamp(24px, 5vw, 58px);
+  align-items: start;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--line);
+}
+
+.release-heading h2 {
+  margin-bottom: 0;
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 1;
+}
+
+.release-meta {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.release-meta div {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 14px;
+  align-items: center;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.release-meta dt {
+  color: var(--faint);
+  font-size: 12px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.release-meta dd {
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 720;
+}
+
+.release-section {
+  padding-top: 28px;
+}
+
+.release-section h3 {
+  margin-bottom: 14px;
+  font-size: 22px;
+}
+
+.release-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.release-list li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.release-list li::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  content: "";
+}
+
 .install {
   display: grid;
   grid-template-columns: minmax(280px, 0.72fr) minmax(360px, 1fr);
@@ -920,6 +1057,10 @@ figcaption {
   border-top: 1px solid var(--line);
 }
 
+.download-panel.compact {
+  padding-bottom: 46px;
+}
+
 .checksum {
   margin-top: 12px;
 }
@@ -971,7 +1112,8 @@ code {
 
   .showcase,
   .bucket-showcase,
-  .install {
+  .install,
+  .release-heading {
     grid-template-columns: 1fr;
   }
 
@@ -1143,9 +1285,14 @@ code {
   }
 
   .hero-actions,
+  .release-actions,
   .button,
   .download-panel .button {
     width: 100%;
+  }
+
+  .release-actions {
+    gap: 10px;
   }
 
   .button {
@@ -1211,6 +1358,26 @@ code {
 
   .install {
     padding: 22px;
+  }
+
+  .release-page {
+    padding-top: 22px;
+  }
+
+  .changelog-hero {
+    padding-bottom: 38px;
+  }
+
+  .changelog-hero h1 {
+    font-size: clamp(48px, 16vw, 68px);
+  }
+
+  .changelog-card {
+    padding: 22px;
+  }
+
+  .release-meta div {
+    grid-template-columns: 76px 1fr;
   }
 
   .steps li {

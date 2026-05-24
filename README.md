@@ -12,13 +12,15 @@ downloads/ShiftV.dmg
 ```
 
 The bundled DMG was built from the Release `ShiftV.app` on 2026-05-23.
+Release notes are published at `changelog.html`.
 
 ## Build Included
 
 - App: ShiftV
 - Version: 1.0.0
+- Build: 1
 - Requires: macOS 14 or later
 - DMG size: 5.2 MB
-- SHA-256: `054ec227fbe0c2e55ecd5010c846e72c75212a95e3ea59d051b9a556452af853`
+- SHA-256: `23e02e010b2e131e2e384a1801a4a788fa28d4ae9b6aa8c4c0cb42e486fe47cf`
 
 This is an early test build and is not notarized by Apple yet. The page includes the first-launch right-click/Open instruction for testers.
