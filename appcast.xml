@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>ShiftV</title>
+        <item>
+            <title>1.0.0</title>
+            <pubDate>Tue, 26 May 2026 22:56:17 -0700</pubDate>
+            <link>https://bbshih.github.io/shiftv/</link>
+            <sparkle:fullReleaseNotesLink>https://bbshih.github.io/shiftv/changelog.html</sparkle:fullReleaseNotesLink>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[# ShiftV 1.0.0
+
+Initial public release build.
+
+- Visual clipboard history with search, stashes, paste stack, transforms, smart rules, privacy controls, and app exclusions.
+- About and changelog settings.
+- Open at startup support.
+]]></description>
+            <enclosure url="https://bbshih.github.io/shiftv/downloads/releases/ShiftV-1.0.0.dmg" length="6424273" type="application/octet-stream" sparkle:edSignature="trtEQgG06XEZlYzJsVD7p9G8YdrCO8lRKPsccyHw4fjOYMI7OrsBz04BN+tM/+aV7hMKgyGFXIiXbqk/o7yqBw=="/>
+        </item>
+    </channel>
+</rss>
