@@ -38,7 +38,8 @@ To publish a new direct-distribution build:
    - `downloads/ShiftV.dmg`
    - `downloads/releases/ShiftV-<version>.dmg`
    - `downloads/releases/ShiftV-<version>.md`
-   - any changed `index.html`, `styles.css`, `theme-toggle.js`, `README.md`, or `assets/` files
+   - any generated `downloads/releases/*.delta` files referenced by `appcast.xml`
+   - any changed `index.html`, `changelog.html`, `styles.css`, `theme-toggle.js`, `README.md`, or `assets/` files
 3. Confirm `.github/workflows/pages.yml` copies `appcast.xml` into `_site`.
 4. Commit and push this repo to `master`.
 5. Wait for the `Deploy ShiftV microsite` GitHub Actions workflow to pass.
@@ -48,7 +49,7 @@ Useful verification commands:
 
 ```bash
 curl -fsSL https://bbshih.github.io/shiftv/appcast.xml
-curl -fsSL https://bbshih.github.io/shiftv/downloads/releases/ShiftV-1.0.0.dmg | shasum -a 256
+curl -fsSL https://bbshih.github.io/shiftv/downloads/releases/ShiftV-1.0.1.dmg | shasum -a 256
 curl -fsSL https://bbshih.github.io/shiftv/downloads/ShiftV.dmg | shasum -a 256
 ```
 
@@ -57,10 +58,10 @@ Both DMG URLs should return the same SHA-256 listed below and on the microsite.
 ## Build Included
 
 - App: ShiftV
-- Version: 1.0.0
-- Build: 1
+- Version: 1.0.1
+- Build: 2
 - Requires: macOS 14 or later
 - DMG size: 6.1 MB
-- SHA-256: `a3cacb90d11f6bd57ddf3cbcfebefcef607343c3dcdab9468f92cec7b32207b9`
+- SHA-256: `0d0d88720d0d9200dac33aa77eba6e16ee2801fa9a11f276d02fe3536f36a351`
 
 This is an early direct-distribution build and is not notarized by Apple. The page includes the first-launch right-click/Open instruction for testers.

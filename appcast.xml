@@ -3,10 +3,29 @@
     <channel>
         <title>ShiftV</title>
         <item>
+            <title>1.0.1</title>
+            <pubDate>Wed, 03 Jun 2026 21:06:11 -0700</pubDate>
+            <link>https://bbshih.github.io/shiftv/</link>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[# ShiftV 1.0.1
+
+Bug-fix update for automatic text transforms and URL cleanup.
+
+- Active transform recipes now write the processed text back to the pasteboard, so immediate paste uses the converted clip instead of the original clipboard text.
+- Clean URL now removes Google Ads query parameters such as `gad_source`, `gad_campaignid`, `gbraid`, and `gclid`.
+]]></description>
+            <enclosure url="https://bbshih.github.io/shiftv/downloads/releases/ShiftV-1.0.1.dmg" length="6426653" type="application/octet-stream" sparkle:edSignature="FCcYV0/YY4PTN0wakMgeTg5cgyQLTthPehPNti/8NqegJXjcF+/JHN97op4w6/PrYqh+GuCMvW0cZicHWp4lDw=="/>
+            <sparkle:deltas>
+                <enclosure url="https://bbshih.github.io/shiftv/downloads/releases/ShiftV2-1.delta" sparkle:deltaFrom="1" length="177690" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977712" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="GP99sAXGMeRj1gq4jycWmvBv/WbxLMMG4IfdQBkB0vZpIyPFxbIz/DAkFNWcq5F6sLwMMNh+hjOI4u6u4LmXCg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.0.0</title>
             <pubDate>Tue, 26 May 2026 22:56:17 -0700</pubDate>
             <link>https://bbshih.github.io/shiftv/</link>
-            <sparkle:fullReleaseNotesLink>https://bbshih.github.io/shiftv/changelog.html</sparkle:fullReleaseNotesLink>
             <sparkle:version>1</sparkle:version>
             <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
