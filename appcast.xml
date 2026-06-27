@@ -3,6 +3,26 @@
     <channel>
         <title>ShiftV</title>
         <item>
+            <title>1.0.2</title>
+            <pubDate>Sat, 27 Jun 2026 00:58:17 -0700</pubDate>
+            <link>https://bbshih.github.io/shiftv/</link>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[# ShiftV 1.0.2
+
+Bug-fix update for web link pasting.
+
+- Web link clips, including YouTube URLs, now paste once instead of duplicating the URL in apps that consume multiple pasteboard URL representations.
+]]></description>
+            <enclosure url="https://bbshih.github.io/shiftv/downloads/releases/ShiftV-1.0.2.dmg" length="6428737" type="application/octet-stream" sparkle:edSignature="9vE1mTGNjpIr8SsmOpKFphn9ogh7seXQrmNY6YWlxhZ/Fyj91PTymHPi6mB4d0lZiL6CkfaW/cBIOzpnwIz+Cg=="/>
+            <sparkle:deltas>
+                <enclosure url="https://bbshih.github.io/shiftv/downloads/releases/ShiftV3-2.delta" sparkle:deltaFrom="2" length="70914" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977712" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="YHQOb1TU9fY97E7Yn6pAutu7Nm8nrrhB4+3Yszx7oR0xrQpBXEHhxJFIaI7NBfx2yrPYZYImQP30i0vIN5qPCA=="/>
+                <enclosure url="https://bbshih.github.io/shiftv/downloads/releases/ShiftV3-1.delta" sparkle:deltaFrom="1" length="177890" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977712" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="qmrZjqZfVS1KVnKpZTSO2LELFZSBnGiQi8PrRDpfZozf7RMogpTs4izvADvL6ht7QQ6MViMDC41rNAiygCkyDg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.0.1</title>
             <pubDate>Wed, 03 Jun 2026 21:06:11 -0700</pubDate>
             <link>https://bbshih.github.io/shiftv/</link>
@@ -18,9 +38,6 @@ Bug-fix update for automatic text transforms and URL cleanup.
 - Clean URL now removes Google Ads query parameters such as `gad_source`, `gad_campaignid`, `gbraid`, and `gclid`.
 ]]></description>
             <enclosure url="https://bbshih.github.io/shiftv/downloads/releases/ShiftV-1.0.1.dmg" length="6426653" type="application/octet-stream" sparkle:edSignature="FCcYV0/YY4PTN0wakMgeTg5cgyQLTthPehPNti/8NqegJXjcF+/JHN97op4w6/PrYqh+GuCMvW0cZicHWp4lDw=="/>
-            <sparkle:deltas>
-                <enclosure url="https://bbshih.github.io/shiftv/downloads/releases/ShiftV2-1.delta" sparkle:deltaFrom="1" length="177690" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977712" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="GP99sAXGMeRj1gq4jycWmvBv/WbxLMMG4IfdQBkB0vZpIyPFxbIz/DAkFNWcq5F6sLwMMNh+hjOI4u6u4LmXCg=="/>
-            </sparkle:deltas>
         </item>
         <item>
             <title>1.0.0</title>

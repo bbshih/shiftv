@@ -1,11 +1,16 @@
 # ShiftV Microsite
 
-Public static download page and Sparkle appcast host for sharing ShiftV.
+Static download page and Sparkle appcast host for sharing ShiftV.
 
-## GitHub Pages
+## Canonical Deployment
 
-This repository deploys the site to GitHub Pages from `master` using `.github/workflows/pages.yml`.
-This repo is the canonical public microsite for ShiftV. The private `bbshih/ClipStash` repo keeps source release output in `microsite/`, but the public site, appcast, and downloads are published here.
+The canonical public microsite is the separate public GitHub repo:
+
+```text
+bbshih/shiftv
+```
+
+GitHub Pages deploys that repo from `master` using `.github/workflows/pages.yml`. Do not use the private `bbshih/ClipStash` repo's Pages settings as the canonical host; this source folder is copied into the `shiftv` repo when publishing.
 
 The live site is:
 
@@ -13,7 +18,22 @@ The live site is:
 https://bbshih.github.io/shiftv/
 ```
 
-The download button points to:
+To publish a new direct-distribution build:
+
+1. From the ClipStash repo, run `script/release_sparkle.sh`.
+2. Copy the updated microsite release files into the `bbshih/shiftv` repo:
+   - `appcast.xml`
+   - `downloads/ShiftV.dmg`
+   - `downloads/releases/ShiftV-<version>.dmg`
+   - `downloads/releases/ShiftV-<version>.md`
+   - any generated `downloads/releases/*.delta` files referenced by `appcast.xml`
+   - any changed `index.html`, `changelog.html`, `styles.css`, `theme-toggle.js`, `README.md`, or `assets/` files
+3. Make sure `bbshih/shiftv/.github/workflows/pages.yml` includes `appcast.xml` in the Pages artifact.
+4. Commit and push `bbshih/shiftv` to `master`.
+5. Wait for the `Deploy ShiftV microsite` GitHub Actions workflow to pass.
+6. Verify the live site, appcast, and DMG hashes.
+
+The homepage download button points to the mirrored latest artifact:
 
 ```text
 downloads/ShiftV.dmg
@@ -22,46 +42,55 @@ downloads/ShiftV.dmg
 Sparkle checks the feed at:
 
 ```text
+appcast.xml
+```
+
+For the public GitHub Pages deployment, the app uses:
+
+```text
 https://bbshih.github.io/shiftv/appcast.xml
 ```
 
-The bundled DMG was built from the Release `ShiftV.app`.
-Release notes are published at `changelog.html`.
+The appcast references the versioned release artifact and any generated delta files:
 
-## Deployment
-
-To publish a new direct-distribution build:
-
-1. In `/Users/billyshih/dev/ClipStash`, run `script/release_sparkle.sh`.
-2. Copy the updated release files from `/Users/billyshih/dev/ClipStash/microsite/` into this repo:
-   - `appcast.xml`
-   - `downloads/ShiftV.dmg`
-   - `downloads/releases/ShiftV-<version>.dmg`
-   - `downloads/releases/ShiftV-<version>.md`
-   - any generated `downloads/releases/*.delta` files referenced by `appcast.xml`
-   - any changed `index.html`, `changelog.html`, `styles.css`, `theme-toggle.js`, `README.md`, or `assets/` files
-3. Confirm `.github/workflows/pages.yml` copies `appcast.xml` into `_site`.
-4. Commit and push this repo to `master`.
-5. Wait for the `Deploy ShiftV microsite` GitHub Actions workflow to pass.
-6. Verify the live site, appcast, and DMG hashes.
-
-Useful verification commands:
-
-```bash
-curl -fsSL https://bbshih.github.io/shiftv/appcast.xml
-curl -fsSL https://bbshih.github.io/shiftv/downloads/releases/ShiftV-1.0.1.dmg | shasum -a 256
-curl -fsSL https://bbshih.github.io/shiftv/downloads/ShiftV.dmg | shasum -a 256
+```text
+downloads/releases/ShiftV-1.0.2.dmg
+downloads/releases/ShiftV3-2.delta
 ```
 
-Both DMG URLs should return the same SHA-256 listed below and on the microsite.
+The latest DMG is mirrored between `downloads/ShiftV.dmg` and the versioned release directory so the web download and Sparkle appcast resolve to the same build.
 
 ## Build Included
 
 - App: ShiftV
-- Version: 1.0.1
-- Build: 2
+- Version: 1.0.2
+- Build: 3
 - Requires: macOS 14 or later
 - DMG size: 6.1 MB
-- SHA-256: `0d0d88720d0d9200dac33aa77eba6e16ee2801fa9a11f276d02fe3536f36a351`
+- SHA-256: `9b9019cd2e4f8523dd6a0eaabfb83b03da620aa2604b67c770bcce934db2b0a6`
 
 This is an early direct-distribution build and is not notarized by Apple. The page includes the first-launch right-click/Open instruction for testers.
+
+## Sparkle Releases
+
+Run the release helper from the repository root:
+
+```bash
+script/release_sparkle.sh
+```
+
+The helper builds the locally signed Release app, packages a versioned DMG in `downloads/releases/`, then runs Sparkle's `generate_appcast` tool to update `appcast.xml`. No Apple Developer account is required for this direct-distribution path.
+
+Private Sparkle key material must stay out of the repository. The default signing account is `com.clipstash.shiftv` in the macOS Keychain. CI can pass the key through `SPARKLE_PRIVATE_KEY` instead.
+
+## Live Verification
+
+After GitHub Pages deploys, verify the published files:
+
+```bash
+curl -fsSL https://bbshih.github.io/shiftv/appcast.xml
+curl -fsSL https://bbshih.github.io/shiftv/downloads/releases/ShiftV-1.0.2.dmg | shasum -a 256
+curl -fsSL https://bbshih.github.io/shiftv/downloads/ShiftV.dmg | shasum -a 256
+```
+
+Both DMG URLs should return the same SHA-256 listed in this README and on the microsite.
